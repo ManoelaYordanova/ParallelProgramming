@@ -1,3 +1,5 @@
+using RegularExpressionDataGenerator;
+
 namespace ParallelProgramming
 {
     public partial class Form1 : Form
@@ -7,30 +9,27 @@ namespace ParallelProgramming
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            Random generator = new Random();
-            int numberOfEmails = generator.Next(10, 19);
-            generateEmails();
+            GenerateEmails();
         }
 
         List<Emails> readEmails = new List<Emails>();
-        public void generateEmails()
+        public void GenerateEmails()
         {
-            using (var streamReader = new StreamReader(@"C:\Users\USER\Desktop\C#\ParallelProgramming\ParallelProgramming\emails.csv"))
+            string emailPattern = @"[a-z]{1,9}@((gmail)|(outlook)|(hotmail))\.com";
+            string textPattern = "\\w{10,90}";
+            RegExpDataGenerator emailGenerator = new RegExpDataGenerator(emailPattern);
+            RegExpDataGenerator textGenerator = new RegExpDataGenerator(textPattern);
+            int random = new Random().Next(10, 100);
+            for (int i = 0; i < random; i++)
             {
-                while (!streamReader.EndOfStream)
-                {
-                    var line = streamReader.ReadLine();
-                    var elements = line.Split(new char[] {  ','  }, StringSplitOptions.RemoveEmptyEntries);
-                    Emails email = new Emails(elements[0], elements[1], elements[2], false);
-                    readEmails.Add(email);
-                }
+                readEmails.Add(new Emails(i.ToString(), emailGenerator.Next(), textGenerator.Next()));
             }
             dataGridView1.DataSource = readEmails;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

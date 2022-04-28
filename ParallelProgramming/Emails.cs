@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ParallelProgramming
+﻿namespace ParallelProgramming
 {
     public class Emails
     {
-        public Emails(String nummer, String email, String text, Boolean processed)
+        public Emails(string nummer, string email, string text)
         {
             this.Nummer = nummer;
             this.Email = email;
             this.Text = text;
-            this.Processed = processed;
         }
-        public String Nummer { get; set; }
-        public String Email { get; set; }
-        public String Text { get; set; }
-        public Boolean Processed { get; set; }
+        public string Nummer { get; set; }
+        public string Email { get; set; }
+        public string Text { get; set; }
+        public bool Processed { get; set; }
 
    }
 }
