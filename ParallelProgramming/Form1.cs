@@ -47,12 +47,7 @@ namespace ParallelProgramming
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            if(readEmails.Count == 0)
-            {
-                System.Windows.Forms.MessageBox.Show("Моля първо генерирайте имейли.");
-                return;
-            }
+        { 
 
             ProcessEmails();
             
