@@ -4,6 +4,7 @@ namespace ParallelProgramming
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -92,7 +93,8 @@ namespace ParallelProgramming
                 this.Invoke(delegate () { box.Items.Add($"{email.Nummer} : {email.Email}"); } );
                 int random = new Random().Next(1,5);
                 Thread.Sleep(random * 1000);
-                email.Processed = true;
+                MailService send = new MailService();
+                send.Send(email);
                 lock (dataGridView1)
                 {
                     this.Invoke(delegate () { dataGridView1.Refresh(); });
@@ -102,6 +104,11 @@ namespace ParallelProgramming
         }
 
         private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
