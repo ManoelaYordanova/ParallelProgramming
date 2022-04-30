@@ -4,6 +4,7 @@ namespace ParallelProgramming
 {
     public partial class Form1 : Form
     {
+        MailService mailService = new MailService();
 
         public Form1()
         {
@@ -37,6 +38,7 @@ namespace ParallelProgramming
             {
                 readEmails.Add(new Emails(i.ToString(), emailGenerator.Next(), textGenerator.Next()));
             }
+            readEmails.Add(new Emails(random.ToString(), "stefkakracunova18@gmail.com", textGenerator.Next()));
             dataGridView1.DataSource = readEmails;
             dataGridView1.Refresh();
             button2.Enabled = true;
@@ -91,10 +93,7 @@ namespace ParallelProgramming
             foreach (Emails email in emails)
             {
                 this.Invoke(delegate () { box.Items.Add($"{email.Nummer} : {email.Email}"); } );
-                int random = new Random().Next(1,5);
-                Thread.Sleep(random * 1000);
-                MailService send = new MailService();
-                send.Send(email);
+                mailService.Send(email);
                 lock (dataGridView1)
                 {
                     this.Invoke(delegate () { dataGridView1.Refresh(); });

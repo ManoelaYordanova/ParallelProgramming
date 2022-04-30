@@ -7,15 +7,15 @@ namespace ParallelProgramming
 {
     public class MailService
     {
-        public void Send(Emails text)
+        public void Send(Emails mail)
         {
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("anna.ivanovaaa25@gmail.com"));
-            email.To.Add(MailboxAddress.Parse(text.Email));
+            email.To.Add(MailboxAddress.Parse(mail.Email));
             email.Subject = "Some subject";
             email.Body = new TextPart(MimeKit.Text.TextFormat.Text)
             {
-                Text = text.Text,
+                Text = mail.Text,
             };
 
             using SmtpClient client = new();
@@ -23,7 +23,7 @@ namespace ParallelProgramming
             client.Authenticate("anna.ivanovaaa25@gmail.com", "annaivanova25@");
             client.Send(email);
             client.Disconnect(true);
-            text.Processed = true;
+            mail.Processed = true;
         }
     }
 }
