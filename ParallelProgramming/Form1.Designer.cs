@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.generate_button = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -37,11 +38,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.thread3 = new System.Windows.Forms.ListBox();
+            this.thread4 = new System.Windows.Forms.ListBox();
+            this.thread1 = new System.Windows.Forms.ListBox();
+            this.thread2 = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // generate_button
@@ -140,7 +145,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 97);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
@@ -149,46 +154,75 @@
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // listBox3
+            // thread3
             // 
-            this.listBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 28;
-            this.listBox3.Location = new System.Drawing.Point(651, 443);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(261, 32);
-            this.listBox3.TabIndex = 20;
+            this.thread3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.thread3.FormattingEnabled = true;
+            this.thread3.ItemHeight = 28;
+            this.thread3.Location = new System.Drawing.Point(651, 443);
+            this.thread3.Name = "thread3";
+            this.thread3.Size = new System.Drawing.Size(261, 32);
+            this.thread3.TabIndex = 20;
             // 
-            // listBox4
+            // thread4
             // 
-            this.listBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 28;
-            this.listBox4.Location = new System.Drawing.Point(978, 443);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(261, 32);
-            this.listBox4.TabIndex = 21;
-            this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
+            this.thread4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.thread4.FormattingEnabled = true;
+            this.thread4.ItemHeight = 28;
+            this.thread4.Location = new System.Drawing.Point(989, 443);
+            this.thread4.Name = "thread4";
+            this.thread4.Size = new System.Drawing.Size(261, 32);
+            this.thread4.TabIndex = 21;
+            this.thread4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
             // 
-            // listBox1
+            // thread1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 28;
-            this.listBox1.Location = new System.Drawing.Point(651, 177);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(261, 32);
-            this.listBox1.TabIndex = 22;
+            this.thread1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.thread1.FormattingEnabled = true;
+            this.thread1.ItemHeight = 28;
+            this.thread1.Location = new System.Drawing.Point(651, 177);
+            this.thread1.Name = "thread1";
+            this.thread1.Size = new System.Drawing.Size(261, 32);
+            this.thread1.TabIndex = 22;
             // 
-            // listBox2
+            // thread2
             // 
-            this.listBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 28;
-            this.listBox2.Location = new System.Drawing.Point(978, 177);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(261, 32);
-            this.listBox2.TabIndex = 23;
+            this.thread2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.thread2.FormattingEnabled = true;
+            this.thread2.ItemHeight = 28;
+            this.thread2.Location = new System.Drawing.Point(978, 176);
+            this.thread2.Name = "thread2";
+            this.thread2.Size = new System.Drawing.Size(261, 32);
+            this.thread2.TabIndex = 23;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(1253, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(101, 671);
+            this.toolStrip1.TabIndex = 26;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.BackColor = System.Drawing.Color.White;
+            this.toolStripTextBox1.Enabled = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(96, 28);
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // Form1
             // 
@@ -197,11 +231,12 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::ParallelProgramming.Properties.Resources.mb;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1284, 647);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.listBox4);
-            this.Controls.Add(this.listBox3);
+            this.ClientSize = new System.Drawing.Size(1354, 671);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.thread2);
+            this.Controls.Add(this.thread1);
+            this.Controls.Add(this.thread4);
+            this.Controls.Add(this.thread3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
@@ -215,6 +250,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,9 +267,12 @@
         private Label label9;
         private Label label1;
         private DataGridView dataGridView1;
-        private ListBox listBox3;
-        private ListBox listBox4;
-        private ListBox listBox1;
-        private ListBox listBox2;
+        private ListBox thread3;
+        private ListBox thread4;
+        private ListBox thread1;
+        private ListBox thread2;
+        private System.Windows.Forms.Timer timer1;
+        private ToolStrip toolStrip1;
+        private ToolStripTextBox toolStripTextBox1;
     }
 }
